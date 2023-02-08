@@ -26,6 +26,9 @@ public class CarServiceImp implements CarService{
 
     @Override
     public List<Car> getAmountCars(int amount) {
-        return listCars.stream().limit(amount).collect(Collectors.toList());
+       if(amount<0) {
+        amount = 5;
+    }
+       return listCars.stream().limit(amount).collect(Collectors.toList());
     }
 }
